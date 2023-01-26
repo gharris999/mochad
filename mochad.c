@@ -28,7 +28,7 @@
  * supports macros, timers, or RTC so it can be used as-is.
  */
 
-#define IPV6    0
+// #define IPV6    0
 
 #include <stdio.h>
 #include <string.h>
@@ -751,6 +751,8 @@ static int mydaemon(void)
     // IPv4
     struct sockaddr_in servaddr, cliaddr;
 
+    int on = 1;
+	
     listenfd = socket(AF_INET, SOCK_STREAM, 0);
     dbprintf("listenfd %d\n", listenfd);
 
