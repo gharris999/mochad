@@ -14,6 +14,8 @@ Changes were needed to the [Neil Cherry (linuxha) fork](https://github.com/linux
 
 - aarch64 GNU/Linux : Raspberry Pi OS 2022-04-04, Debian 11.4 (bullseye), Linux 5.15.32-v8+
 
+- aarch64 GNU/Linux : Raspberry Pi OS 2023-05-03, Debian 11.7 (bullseye), Linux 6.1.21-v8+
+
 ## Need for Changes
 
 ### Source
@@ -88,17 +90,19 @@ I do not use IPV6 and have not tested that code at all. Any questions about that
 
 ### Compiling the source
 
-From within the directory containing the source
-
-    $ ./autogen.sh
-    $ make
-
-
-While it should be, make sure `autogen.sh` is an executable
+While it should be, make sure that `autogen.sh` in the `mochad-master` directory is an executable
 
     $ chmod +x autogen.sh 
 
-if needed.    
+From within the directory, run the `autogen` script.
+
+    $ ./autogen.sh
+
+This will create the `Makefile`, so now run `make`.
+
+
+    $ make
+
 
 ### Installing the package
 
@@ -109,10 +113,10 @@ Again within the directory containing the source.
 ### Installed files and cleanup
 
      /usr/local/bin/mochad
-     /etc/udev/rules/91-usb-x10-controllers.rules
+     /etc/udev/rules.d/91-usb-x10-controllers.rules
 
 
-In `systemd` the service file is also installed
+In `systemd` systems such as Raspberry Pi OS, the service file is also installed
 
      /etc/systemd/system/mochad.service 
 
